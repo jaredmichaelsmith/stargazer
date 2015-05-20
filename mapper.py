@@ -64,7 +64,7 @@ def create_arg_parser():
         Return the parser object.
     """
 
-    parser = argparse.ArgumentParser(description='(TMP NAME) is a utility ' +
+    parser = argparse.ArgumentParser(description='Stargazer is a utility ' +
                                      'that determines if a given server ' +
                                      'designated by a hostname has a web ' +
                                      'API, and if so, then it maps out all ' +
