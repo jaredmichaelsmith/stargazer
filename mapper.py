@@ -19,14 +19,15 @@ def argparse_is_valid_hostname(hostname):
         raise argparse.argumenttypeerror("Argument 'hostname' is not valid. " +
                                          "Exitting...")
     else:
-        if not socket.gethostbyname(hostname):
+        try:
+            if socket.gethostbyname(hostname):
+                return hostname
+        except Exception:
             raise argparse.ArgumentTypeError("Argument 'hostname' is not " +
                                              "valid. Hostname does not " +
                                              "correspond to an existing " +
                                              "hostname or IP address. " +
                                              "Exitting...")
-        else:
-            return hostname
 
 
 def argparse_is_valid_pe(pe):
@@ -43,7 +44,8 @@ def argparse_is_valid_pe(pe):
 
 def argparse_is_valid_level(level):
     """ Validate the logger level passed in.
-        Returns the logger level if it is valid, otherwise it raises an exception.
+        Returns the logger level if it is valid, otherwise it raises an
+        exception.
     """
 
     valid_levels = ['INFO', 'DEBUG', 'ERROR', 'WARNING']
