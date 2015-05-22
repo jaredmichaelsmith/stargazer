@@ -1,10 +1,10 @@
 Stargazer
 ==========
 
-Version: 0.1.0
-Website: NULL
-Authors: Jared Smith, Joseph Connor, Luke Wegryn
-Contact: jaredsmi@cisco.com
+Version: 0.1.0<br>
+Website: NULL<br>
+Authors: Jared Smith, Joseph Connor, Luke Wegryn<br>
+Contact: jaredsmi@cisco.com<br>
 
 ###Overview:
 ---
