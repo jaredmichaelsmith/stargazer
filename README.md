@@ -4,7 +4,7 @@ Stargazer
 Version: 0.1.0<br>
 Website: NULL<br>
 Authors: Jared Smith, Joseph Connor, Luke Wegryn<br>
-Contact: jaredsmi@cisco.com<br>
+Contact: smith@utk.edu<br>
 
 ###Overview:
 ---
