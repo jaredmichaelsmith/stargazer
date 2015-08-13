@@ -1,6 +1,19 @@
+###############################################################################
+# Stargazer, a tool to map out any APIs on a hostname.
+# Written by Jared Smith, Joseph Connor, and Luke Wegryn.
+#
+# mapper.py
+#
+# Licensed under the MIT License.
+###############################################################################
+
+# Python Standard Library Imports
 import re
 import argparse
 import socket
+
+# 3rd Party Libraries
+import requests
 
 
 def argparse_is_valid_hostname(hostname):
@@ -93,9 +106,66 @@ def create_arg_parser():
     return parser
 
 
+class Mapper(object):
+    """ Mapper class is the primary class that performs the mapping of any apis
+        on the hostname provided.
+    """
+
+    def __init__(self, args):
+        """ Initialize the mapper class.
+            Takes the args namespace from the CLI parser.
+        """
+
+        self.args = args
+        self.hostname = args.hostname
+
+    def probe(self):
+        pass
+
+    def probe_uri(self, uri, request_type="GET"):
+        if request_type == "GET":
+            r = requests.get(uri)
+            if r.status_code == 200:
+                return r
+            else:
+                return None
+        elif request_type == "POST":
+            r = requests.post(uri)
+            if r.status_code == 200:
+                return r
+            else:
+                return None
+        elif request_type == "PUT":
+            r = requests.put(uri)
+            if r.status_code == 200:
+                return r
+            else:
+                return None
+        elif request_type == "DELETE":
+            r = requests.delete(uri)
+            if r.status_code == 200:
+                return r
+            else:
+                return None
+        elif request_type == "HEAD":
+            r = requests.head(uri)
+            if r.status_code == 200:
+                return r
+            else:
+                return None
+        elif request_type == "OPTIONS":
+            r = requests.options(uri)
+            if r.status_code == 200:
+                return r
+            else:
+                return None
+
+
 if __name__ == "__main__":
+    """ Run on program start.
+    """
 
     parser = create_arg_parser()
     args = parser.parse_args()
 
-    print args
+    mapper = Mapper(args)
